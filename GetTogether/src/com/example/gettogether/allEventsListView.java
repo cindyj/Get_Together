@@ -38,7 +38,7 @@ public class allEventsListView extends Activity{
 		adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, android.R.id.text1, listItems);
 		listView.setAdapter(adapter);
 
-	}
+	} 
 
 	public void updateListItems(){
 		ParseUser user = ParseUser.getCurrentUser();
