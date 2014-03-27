@@ -21,7 +21,7 @@ public class contactList extends Activity implements OnClickListener{
 	ContactObjAdapter adapter;
 	ArrayList<String> recipientsSelected; //the phone numbers that were selected to send a message to 
 	Button bSelectedRecipients;
-
+ 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

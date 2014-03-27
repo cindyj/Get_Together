@@ -24,7 +24,7 @@ public class allEventsListView extends Activity{
 	public ArrayList<String> listItems;
 	private ArrayAdapter adapter;
 
-
+ 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
