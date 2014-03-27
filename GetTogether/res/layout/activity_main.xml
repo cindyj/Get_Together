@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+      android:background="@drawable/background"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/btUpcomingEvent"
+        android:layout_width="120dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="90dp"
+        android:layout_below="@+id/btSeeMoreEvents"
+        android:text="Upcoming Event" />
+ 
+    <Button
+        android:id="@+id/btNewEvent"
+        android:layout_width="120dp"
+        android:layout_height="75dp"
+        android:layout_below="@+id/btUpcomingEvent"
+      	android:layout_marginTop="20dp"
+        android:layout_marginLeft="90dp"
+        android:background="@drawable/createnew" />
+
+    <Button
+        android:id="@+id/btSeeMoreEvents"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="225dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/morevents"
+        />
+
+</RelativeLayout>

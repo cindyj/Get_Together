@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <CheckBox
+        android:id="@+id/cBContactName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:text="hello" />
+
+    <TextView
+        android:id="@+id/tVContactNumber"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+    	android:layout_marginLeft="30dp"
+        android:layout_below="@+id/cBContactName"
+        android:text="hi"
+        android:textColor="#000000"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

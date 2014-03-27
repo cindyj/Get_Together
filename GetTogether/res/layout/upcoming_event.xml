@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/iVPlaceLogo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:radius="5dp" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tvUpcomingEventTitle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Upcoming Event: " >
+    </TextView>
+
+    <TextView
+        android:id="@+id/tvUpcomingEventDescription"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvUpcomingEventTitle" >
+    </TextView>
+
+    <Button
+        android:id="@+id/btsendReminderText"
+        android:layout_below="@+id/tvUpcomingEventDescription"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:text="Send Reminder Text" >
+    </Button>
+
+</RelativeLayout>
