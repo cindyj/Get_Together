@@ -136,10 +136,11 @@ public class yelpSuggestions extends Activity{
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		
+		
 		if(requestCode == REQUEST_CODE){
 			Log.d("GetTogether", "This is the resultCode " + resultCode + "and this is is the RESULT_OK " + RESULT_OK);
 			if(resultCode == RESULT_OK){
-				Log.d("GetTogether", "The result is ok");
+				Log.d("GetTogether", "The result is ok"); 
 				//get arraylist
 				phoneNumbersSelected = data.getStringArrayListExtra("contacts");
 				Toast.makeText(this, "this is the number: " + phoneNumbersSelected.get(0), Toast.LENGTH_SHORT).show();
@@ -151,11 +152,9 @@ public class yelpSuggestions extends Activity{
 			         smsManager.sendTextMessage("9562238617", null, "i just sent u msg", null, null);
 			         Toast.makeText(getApplicationContext(), "SMS sent.",
 			         Toast.LENGTH_LONG).show();
-			      } catch (Exception e) {
-			         Toast.makeText(getApplicationContext(),
-			         "SMS faild, please try again.",
-			         Toast.LENGTH_LONG).show();
-			         e.printStackTrace();
+			      } catch (Exception exc) {
+			         Toast.makeText(getApplicationContext(), "SMS faild, please try again.", Toast.LENGTH_LONG).show();
+			         exc.printStackTrace();
 			      }
 			}
 		}
