@@ -12,6 +12,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;

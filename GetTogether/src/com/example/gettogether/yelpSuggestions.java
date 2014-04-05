@@ -30,6 +30,7 @@ import android.os.Bundle;
 import android.provider.Contacts;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -145,6 +146,17 @@ public class yelpSuggestions extends Activity{
 				for(int i = 0; i < phoneNumbersSelected.size(); i++){
 					Log.i("GetTogether", "This is the phone number selected: " + phoneNumbersSelected.get(i));
 				}
+				try {
+			         SmsManager smsManager = SmsManager.getDefault();
+			         smsManager.sendTextMessage("9562238617", null, "i just sent u msg", null, null);
+			         Toast.makeText(getApplicationContext(), "SMS sent.",
+			         Toast.LENGTH_LONG).show();
+			      } catch (Exception e) {
+			         Toast.makeText(getApplicationContext(),
+			         "SMS faild, please try again.",
+			         Toast.LENGTH_LONG).show();
+			         e.printStackTrace();
+			      }
 			}
 		}
 		
