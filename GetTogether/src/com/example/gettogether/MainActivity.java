@@ -18,6 +18,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//initialize buttons
 		btUpcomingEvent = (Button) findViewById(R.id.btUpcomingEvent);
 		btNewEvent = (Button) findViewById(R.id.btNewEvent);
 		btSeeMoreEvents = (Button) findViewById(R.id.btSeeMoreEvents);
@@ -33,6 +34,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		Intent ourIntent;
 		
 		switch(v.getId()){
+		//displays most recent event
 		case R.id.btUpcomingEvent:
 			try {
 				ourClass = Class.forName("com.example.gettogether.upcomingEvent");
@@ -46,6 +48,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			
 			break;
 			
+		//create new event; directed to Yelp suggestions
 		case R.id.btNewEvent:
 			try {
 				ourClass = Class.forName("com.example.gettogether.createNewEvent");
@@ -59,6 +62,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			
 			break;
 			
+		//listview of upcoming events	
 		case R.id.btSeeMoreEvents:
 			try {
 				ourClass = Class.forName("com.example.gettogether.main_activity");

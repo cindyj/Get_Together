@@ -54,8 +54,8 @@ public class yelpSuggestions extends Activity{
 	String longt = "";
 	Button btSendMsg;
 	CheckBox checkBox;
-	ArrayList<String> placesChecked;
-	ArrayList<String> listName;
+	ArrayList<String> placesChecked; //keeps track of the places the user checked 
+	ArrayList<String> listName;		//keeps track of the 
 	ArrayList<String> listContactId;
 	ArrayList<String> listMobileNo;
 	private static final int REQUEST_CODE = 3;  // The request code for receiving the contact list
@@ -128,7 +128,7 @@ public class yelpSuggestions extends Activity{
 	} 
 
 
-
+	//Retrieves the contacts the user selected from their Contact List and sends SMS message to them
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		Log.d("GEtTogether", "I'm in onActivity result");
@@ -147,19 +147,23 @@ public class yelpSuggestions extends Activity{
 				for(int i = 0; i < phoneNumbersSelected.size(); i++){
 					Log.i("GetTogether", "This is the phone number selected: " + phoneNumbersSelected.get(i));
 				}
+				
+				//**************Send SMS message to contacts selected******************
 				try {
-			         SmsManager smsManager = SmsManager.getDefault();
+			         SmsManager smsManager = SmsManager.getDefault(); //initialize SMS manager
 			         smsManager.sendTextMessage("9562238617", null, "i just sent u msg", null, null);
 			         Toast.makeText(getApplicationContext(), "SMS sent.",
 			         Toast.LENGTH_LONG).show();
 			      } catch (Exception exc) {
-			         Toast.makeText(getApplicationContext(), "SMS faild, please try again.", Toast.LENGTH_LONG).show();
+			         Toast.makeText(getApplicationContext(), "SMS failed, please try again.", Toast.LENGTH_LONG).show();
 			         exc.printStackTrace();
 			      }
 			}
 		}
 		
 	}
+	
+	//Retrieves the search query passed in
 	public String getSearchQuery(){
 		Bundle gotBasket = getIntent().getExtras();
 		String s = gotBasket.getString("query"); //get the search query
@@ -167,6 +171,7 @@ public class yelpSuggestions extends Activity{
 		return s;
 	}
 
+	//Retrieves the geolocation passed in
 	public void getLatLong(){
 		Bundle gotBasket = getIntent().getExtras();
 		//lat = gotBasket.getString("latitude");
@@ -177,6 +182,7 @@ public class yelpSuggestions extends Activity{
 		Log.d("GEtTogether", "This is the longtitde retrieved: " + longt);
 	}
 
+	//Prepares url to search in Yelp API
 	public String prepareURL(){
 		getLatLong();
 		String temp = "http://api.yelp.com/business_review_search?term=yelp&tl_lat=37.9&tl_long=-122.5&br_lat=37.788022&br_long=-122.399797&limit=3&ywsid=OQe8xEi6elyRsyTGaOL-Sw";
@@ -185,6 +191,7 @@ public class yelpSuggestions extends Activity{
 		return url;
 	}
 
+	//Retrieves data from Yelp API
 	public JSONObject retrieveQueryInfo() throws ClientProtocolException, IOException, JSONException{
 		StringBuilder url = new StringBuilder(prepareURL());
 		HttpGet get = new HttpGet(url.toString()); //GET method
@@ -205,7 +212,7 @@ public class yelpSuggestions extends Activity{
 		return null;
 	}
 
-
+	//Thread to fetch data from Yelp API
 	public class Read extends AsyncTask<String, Integer, String>{
 
 		@Override
@@ -229,8 +236,8 @@ public class yelpSuggestions extends Activity{
 					total += firstObj.getString("city");
 					total += firstObj.getString("state");
 
+					//To fetch images from API
 					Bitmap x;
-
 					HttpURLConnection connection;
 					try {
 						connection = (HttpURLConnection) new URL(photoUrl).openConnection();
@@ -241,7 +248,6 @@ public class yelpSuggestions extends Activity{
 
 						Log.d("GetTogether", "This is the size of the array so far: " + suggestions.size());
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -274,7 +280,7 @@ public class yelpSuggestions extends Activity{
 		}
 	}
 	
-	
+	//Thread to read contact information from user's phone
 	public class ReadContacts extends AsyncTask<String, Integer, String>{
 
 		@Override

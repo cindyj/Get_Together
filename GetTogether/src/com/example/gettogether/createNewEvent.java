@@ -1,3 +1,5 @@
+/* This class allows the user to enter a search query such as 'bowling' and will send their query and geolocation to the YelpSuggestions class
+ * */
 package com.example.gettogether;
 
 import android.app.Activity;
@@ -41,7 +43,7 @@ public class createNewEvent extends Activity implements LocationListener{
 				// TODO Auto-generated method stub
 				Class ourClass;
 				Intent ourIntent;
-
+				//go onto Yelp Suggestions class and pass user's search query and their geolocation
 				try {
 					ourClass = Class.forName("com.example.gettogether.yelpSuggestions");
 					ourIntent = new Intent(createNewEvent.this, ourClass);
@@ -54,7 +56,6 @@ public class createNewEvent extends Activity implements LocationListener{
 					ourIntent.putExtras(basket);
 					startActivity(ourIntent);
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -80,8 +81,7 @@ public class createNewEvent extends Activity implements LocationListener{
  
 		 // Get the location manager
 	    locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-	    // Define the criteria how to select the locatioin provider -> use
-	    // default
+	    // Define the criteria how to select the locatioin provider
 	    Criteria criteria = new Criteria();
 	    provider = locationManager.getBestProvider(criteria, false);
 	    Location location = locationManager.getLastKnownLocation(provider);
@@ -114,9 +114,9 @@ public class createNewEvent extends Activity implements LocationListener{
 	@Override
 	public void onLocationChanged(Location location) {
 		Log.d("GetTogether", "I'm in the onLocationChanged method");
-		// TODO Auto-generated method stub
-		//lat = "" + Math.round(location.getLatitude() * 100.0) / 100.0;
-		//longt = "" + Math.round(location.getLongitude() * 100.0) / 100.0;
+		// get latitude and longitude from location manager
+		//lat = "" + Math.round(location.getLatitude() * 100.0) / 100.0;     ........ will uncomment this
+		//longt = "" + Math.round(location.getLongitude() * 100.0) / 100.0;  ........ will uncomment this
 		lat = "" + 39.9522190;
 		longt = "" + -75.1932140;
 		Log.d("GetTogether", "This is the latitide: " + lat + " and this is the longitude: " + longt);
