@@ -19,8 +19,8 @@ import com.twilio.sdk.resource.list.*;
 
 
 public class TextSender {
-	private static final String ACCOUNT_SID = "ACa012014aafd702e3571b57317e79a798"; 
-	private static final String AUTH_TOKEN = "6f9833544766f90c555178c680b96224";
+	private static final String ACCOUNT_SID = "***"; 
+	private static final String AUTH_TOKEN = "***";
 	//private static ArrayList<String> idList = new ArrayList<String>(); 
 	private static TwilioRestClient client; 
 	//private static HttpServletRequest req;
